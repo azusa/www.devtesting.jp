@@ -54,6 +54,6 @@ public class Function {
             }
         }
 
-        return request.createResponseBuilder(HttpStatus.PERMANENT_REDIRECT).header("Location", "https://archive-devtesting-jp.github.io/tddbc/" + target).build();
+        return request.createResponseBuilder(HttpStatus.TEMPORARY_REDIRECT).header("Location", "https://archive-devtesting-jp.github.io/tddbc/" + target).build();
     }
 }
