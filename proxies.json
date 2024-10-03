@@ -5,7 +5,7 @@
         "matchCondition": {
           "route": "/api/Index"
         },
-        "backendUri": "https://%WWW_HOST%"
+        "backendUri": "https://%WWW_HOST%/{path}"
       }
     }
   }
