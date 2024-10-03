@@ -24,7 +24,7 @@ public class Function {
     public HttpResponseMessage run(
             @HttpTrigger(
                 name = "req",
-                route = "/",
+                route = "/tddbc/",
                 methods = {HttpMethod.GET, HttpMethod.POST},
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
