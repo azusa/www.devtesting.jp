@@ -5,7 +5,7 @@
         "matchCondition": {
           "route": "/api/Index"
         },
-        "backendUri": "https://%WWW_HOST%/{path}"
+        "backendUri": "https://www-devtesting-jp.azurewebsites.net/{path}"
       }
     }
   }
