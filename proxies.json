@@ -3,9 +3,9 @@
     "proxies": {
       "wwwProxy": {
         "matchCondition": {
-          "route": "/api/Index"
+          "route": "/{*path}"
         },
-        "backendUri": "https://www-devtesting-jp.azurewebsites.net/{path}"
+        "backendUri": "https://%WWW_HOST%/api/Index"
       }
     }
   }
