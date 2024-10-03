@@ -33,7 +33,7 @@ public class Function {
 
         final String c = request.getQueryParameters().get("c");
         String target = "";
-        if (c != null && !c.isEmpty()) {
+        if (c != null) {
             if (c.equals("index")){
                 target = "page_list.html";
             } else {
