@@ -39,13 +39,14 @@ public class Function {
             } else {
                 target = c + ".html";
             }
+        } else {
+            // クエリーパラメーター全体を取得
+            final String queryString = request.getUri().getQuery();
+            if (queryString != null && !queryString.isEmpty()){
+                target = queryString + ".html";
+            }
         }
-        // クエリーパラメーター全体を取得
-        final String queryString = request.getUri().getQuery();
 
-        if (queryString != null && !queryString.isEmpty()){
-            target = queryString + ".html";
-        }
         return request.createResponseBuilder(HttpStatus.PERMANENT_REDIRECT).header("Location", "https://archive-devtesting-jp.github.io/tddbc/" + target).build();
     }
 }
