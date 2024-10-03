@@ -33,7 +33,7 @@ public class Function {
 
         final String c = request.getQueryParameters().get("c");
         String target = "";
-        if (c != null) {
+        if (c != null && !c.isEmpty()) {
             if (c.equals("index")){
                 target = "page_list.html";
             } else {
@@ -43,7 +43,7 @@ public class Function {
         // クエリーパラメーター全体を取得
         final String queryString = request.getUri().getQuery();
 
-        if (queryString != null) {
+        if (queryString != null && !queryString.isEmpty()){
             target = queryString + ".html";
         }
         return request.createResponseBuilder(HttpStatus.PERMANENT_REDIRECT).header("Location", "https://archive-devtesting-jp.github.io/tddbc/" + target).build();
