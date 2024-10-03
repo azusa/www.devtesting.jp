@@ -47,7 +47,7 @@ public class Function {
             }
         } else {
             // クエリーパラメーター全体を取得
-            final String queryString = request.getUri().getQuery();
+            final String queryString = request.getUri().getRawQuery();
             if (queryString != null && !queryString.isEmpty()){
                 target = queryString + ".html";
             }
