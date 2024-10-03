@@ -9,6 +9,7 @@ import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -31,7 +32,12 @@ public class Function {
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
-        final String c = request.getQueryParameters().get("c");
+        
+        Map<String, String> queryParams = request.getQueryParameters();
+        String c = null;
+        if (queryParams != null) {
+            c = queryParams.get("c");
+        }
         String target = "";
         if (c != null) {
             if (c.equals("index")){
