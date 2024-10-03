@@ -49,7 +49,7 @@ public class Function {
             // クエリーパラメーター全体を取得
             String queryString = request.getUri().getRawQuery();
             if (queryString != null && !queryString.isEmpty()){
-                queryString = queryString.replaceAll("%[0-9A-Fa-f]{2}", "_").replace("+", "_");
+                queryString = queryString.replace("%2F", "_").replace("+", "_");
                 target = queryString + ".html";
             }
         }
