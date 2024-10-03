@@ -47,8 +47,9 @@ public class Function {
             }
         } else {
             // クエリーパラメーター全体を取得
-            final String queryString = request.getUri().getRawQuery();
+            String queryString = request.getUri().getRawQuery();
             if (queryString != null && !queryString.isEmpty()){
+                queryString = queryString.replaceAll("%[0-9A-Fa-f]{2}", "_").replace("+", "_");
                 target = queryString + ".html";
             }
         }
