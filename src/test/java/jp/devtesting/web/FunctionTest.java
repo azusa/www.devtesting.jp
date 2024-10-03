@@ -31,7 +31,7 @@ public class FunctionTest {
         queryParams.put("name", "Azure");
         doReturn(queryParams).when(req).getQueryParameters();
 
-        final URI uri = new URI("http://localhost:7071/api/HttpExample?name=Azure");
+        final URI uri = new URI("http://localhost:7071/api/Index?name=Azure");
         doReturn(uri).when(req).getUri();
 
         final Optional<String> queryBody = Optional.empty();
