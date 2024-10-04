@@ -52,6 +52,6 @@ public class FunctionTest {
         final HttpResponseMessage ret = new Function().run(req, context);
 
         // Verify
-        assertEquals(ret.getStatus(), HttpStatus.PERMANENT_REDIRECT);
+        assertEquals(ret.getStatus(), HttpStatus.TEMPORARY_REDIRECT);
     }
 }
