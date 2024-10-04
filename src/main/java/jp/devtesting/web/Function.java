@@ -50,7 +50,7 @@ public class Function {
             String queryString = request.getUri().getRawQuery();
             if (queryString != null && !queryString.isEmpty()){
                 //C%2B%2B -> C++ -> cpp に変換
-                queryString = queryString.replace("%2F", "_").replace("+", "_").replace("C%2B%2B", "cpp");
+                queryString = queryString.replace("%2F", "_").replace("+", "_").replace("%2B%2B", "pp");
                 target = queryString + ".html";
             }
         }
