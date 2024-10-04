@@ -6,6 +6,7 @@ import com.microsoft.azure.functions.HttpRequestMessage;
 import com.microsoft.azure.functions.HttpResponseMessage;
 import com.microsoft.azure.functions.HttpStatus;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
+import com.microsoft.azure.functions.annotation.BindingName;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
@@ -25,14 +26,14 @@ public class Function {
     public HttpResponseMessage run(
             @HttpTrigger(
                 name = "req",
-                route = "/tddbc/",
+                route = "{path}/",
                 methods = {HttpMethod.GET, HttpMethod.POST},
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
+            final ExecutionContext context,
+            @BindingName("path") String path) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
-        
         Map<String, String> queryParams = request.getQueryParameters();
         String c = null;
         if (queryParams != null) {
@@ -55,6 +56,6 @@ public class Function {
             }
         }
 
-        return request.createResponseBuilder(HttpStatus.TEMPORARY_REDIRECT).header("Location", "https://archive-devtesting-jp.github.io/tddbc/" + target).build();
+        return request.createResponseBuilder(HttpStatus.TEMPORARY_REDIRECT).header("Location", "https://archive-devtesting-jp.github.io/" + path + "/" + target).build();
     }
 }
